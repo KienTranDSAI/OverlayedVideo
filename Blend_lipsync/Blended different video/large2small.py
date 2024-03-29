@@ -21,6 +21,7 @@ while cap.isOpened() and baseCap.isOpened():
     insertRet, insertFrame = cap.read()
     baseRet, baseFrame = baseCap.read()
 
+    # myFrame = insertFrame[:,:,:]
     
     if insertRet and baseRet:
 

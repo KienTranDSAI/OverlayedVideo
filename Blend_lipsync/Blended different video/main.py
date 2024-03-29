@@ -45,16 +45,19 @@ while cap.isOpened() and baseCap.isOpened():
             insert_y = int(insert_y*height)
             insertPolyPoint.append([inser_x,insert_y])
             
-            insertPoint = np.array(insertPolyPoint,dtype=np.int32)
-            cv2.fillPoly(insertMask, pts=[insertPoint], color=(255,255,255))
+            
 
             base_x, base_y = baseLandmarks[0][point].x,baseLandmarks[0][point].y
             base_x = int(base_x*width)
             base_y = int(base_y * height)
             basePolyPoint.append([base_x, base_y])
 
-            basePoint = np.array(basePolyPoint, dtype=np.int32)
-            cv2.fillPoly(baseMask, pts = [basePoint], color = (255,255,255))
+            
+
+        insertPoint = np.array(insertPolyPoint,dtype=np.int32)
+        cv2.fillPoly(insertMask, pts=[insertPoint], color=(255,255,255))
+        basePoint = np.array(basePolyPoint, dtype=np.int32)
+        cv2.fillPoly(baseMask, pts = [basePoint], color = (255,255,255))
 
         pts1 = np.float32([insertPolyPoint[0],insertPolyPoint[5],insertPolyPoint[10],insertPolyPoint[15] ])
         pts2 = np.float32([basePolyPoint[0],basePolyPoint[5],basePolyPoint[10],basePolyPoint[15]])
